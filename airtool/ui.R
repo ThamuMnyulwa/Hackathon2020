@@ -1,7 +1,10 @@
-library(shiny)
-library(leaflet)
+# Author:  ----------------------------------------------------------------
+# Description: ui script-----------------------------------------
+# Date: -------------------------------------------------------------------
 
-navbarPage("Location of Blood Banks", id="main",
+
+navbarPage("Automatic Industry Report", id="main",
            tabPanel("Map", leafletOutput("bbmap", height=1000)),
-           tabPanel("Data", DT::dataTableOutput("data")),
-           tabPanel("Read Me",includeMarkdown("readme.md")))
+           tabPanel("Data", DT::dataTableOutput("merchant_datatable"))
+           #tabPanel("Read Me",includeMarkdown("readme.md"))
+           )

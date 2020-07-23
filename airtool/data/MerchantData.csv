@@ -1,4 +1,4 @@
-﻿Name,Merchant_Id,Business choice,Lat,Long,Address,City,Area Code,Industry
+﻿Name,Merchant_Id,Business_Choice,Lat,Long,Address,City,Area_Code,Industry
 Mini market 1,30770,Ruben Crazzy Corner,-27.4588856,23.4335296,"3648 Spreeu St, Kuruman",Kuruman,8460,MiniMarket
 Mini market 2,9356,Price N Pride,-27.4575644,23.4340224,"18 Livingstone St, Kuruman",Kuruman,8460,MiniMarket
 Mini market 3,24560,Die Meelwinkel,-27.4572385,23.4330026,"Tsenin Rd, Kuruman",Kuruman,8460,MiniMarket
@@ -9,9 +9,9 @@ Restaurant 1,64791,Drum Restaurant,-33.9390145,18.8559878,"Second Floor of Black
 Restaurant 2,58135,Chinese Fu Long,-33.9286762,18.8746257,"28 Cluver Rd, Simonswyk",Stellenbosch,7600,Restaurant
 Restaurant 3,100813,De Stomme Jonge,-33.9382896,18.8614553,"3 Ryneveld St, Stellenbosch Central",Stellenbosch,7600,Restaurant
 Restaurant 4,88857,NcaKos,-33.9325389,18.8653646,"7 De Beer Rd, Stellenbosch",Stellenbosch,7600,Restaurant
-Coffee shop 1,69390,The Daily Coffee Café Elardus Park,-25.82744,28.25982,"859 Barnard St, Elardus Park, Pretoria",Pretoria,0181,CoffeeShop
-Coffee shop 2,59698,Coffee & Flower Co.,-25.8283072,28.2622926,"Hesketh Dr, Moreleta Park",Pretoria,0181,CoffeeShop
-Coffee shop 3,71319,Baristas @Work Coffee Kiosk,-25.7831182,28.2747349,"Cnr Atterbury Street and Lois Avenue Menlyn Shopping Centre, Menlyn",Pretoria,0181,CoffeeShop
+Coffee shop 1,69390,The Daily Coffee Café Elardus Park,-25.82744,28.25982,"859 Barnard St, Elardus Park, Pretoria",Pretoria,181,CoffeeShop
+Coffee shop 2,59698,Coffee & Flower Co.,-25.8283072,28.2622926,"Hesketh Dr, Moreleta Park",Pretoria,181,CoffeeShop
+Coffee shop 3,71319,Baristas @Work Coffee Kiosk,-25.7831182,28.2747349,"Cnr Atterbury Street and Lois Avenue Menlyn Shopping Centre, Menlyn",Pretoria,181,CoffeeShop
 Fast food 1,101023,Queen's Fast Food,-31.9005439,26.8778015,"1 Cathcart Rd, Queenstown, 5319",Queenstown,5319,FastFood
 Fast food 2,101036,Captain DoRegos Hexagon - Queenstown,-31.8960166,26.8696667,"9 The Hexagon, Queenstown, 5319",Queenstown,5319,FastFood
 Beauty 1,115529,The Walk In Closet Beauty Spa,-33.966293,18.5038933,"19 Golf Course Rd, Sybrandpark",CPT_Atholone,7764,Beauty
