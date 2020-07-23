@@ -15,7 +15,7 @@ shinyServer(function(input, output) {
   
   # create a color paletter for category type in the data file
   
-  pal <- colorFactor(pal = c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"), domain = unique(merchant_data$Industry))
+  pal <- colorFactor(topo.colors(length(unique(merchant_data$Industry))), unique(merchant_data$Industry))
   
   # create the leaflet map  
   output$bbmap <- renderLeaflet({
@@ -36,17 +36,18 @@ shinyServer(function(input, output) {
   output$merchant_datatable <-DT::renderDataTable(datatable(merchant_data))
   
   # # new column for the popup label
-  merchant_data_1 <- mutate(merchant_data, cntnt=paste0('<strong>Name: </strong>',Name,
-                                                        '<br><strong>Merchant Id:</strong> ', Merchant_Id,
-                                                        '<br><strong>Business Choice:</strong> ', Business_Choice,
-                                                        '<br><strong>Address:</strong> ',Address,
-                                                        '<br><strong>City:</strong> ',City,
-                                                        '<br><strong>Area Code:</strong> ',Area_Code,
-                                                        '<br><strong>Industry:</strong> ',Industry))
+  # raw_data_1 <- mutate(raw_data, cntnt=paste0('<strong>Name: </strong>',Name,
+  #                                                       '<br><strong>Merchant Id:</strong> ', Merchant_Id,
+  #                                                       '<br><strong>Business Choice:</strong> ', Business_Choice,
+  #                                                       '<br><strong>Address:</strong> ',Address,
+  #                                                       '<br><strong>City:</strong> ',City,
+  #                                                       '<br><strong>Area Code:</strong> ',Area_Code,
+  #                                                       '<br><strong>Industry:</strong> ',Industry))
   
   # create a color paletter for category type in the data file
   
-  pal <- colorFactor(pal = c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"), domain = unique(merchant_data$Industry))
+  #pal <- colorFactor(pal = c(palette = topo.colors(length(unique(merchant_data$Industry))), domain = unique(merchant_data$Industry)))
+  pal <- colorFactor(topo.colors(length(unique(merchant_data$Industry))), unique(merchant_data$Industry))
   
   # create the leaflet map  
   output$bbmap <- renderLeaflet({

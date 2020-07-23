@@ -6,10 +6,14 @@
 library(shiny)
 library(dplyr)
 library(readr)
+library(tidyr)
 library(leaflet)
 library(DT)
 
 # Data import -------------------------------------------------------------
 merchant_data <- read_csv("./data/MerchantData.csv")
 
-raw_data <- read_tsv("https://raw.githubusercontent.com/SUHackathon/data-science-challenge/master/data/business_data.txt", na=c("","NA","NULL",NULL))
+# Improve handling NA's
+raw_data <- read_tsv("https://raw.githubusercontent.com/SUHackathon/data-science-challenge/master/data/business_data.txt", na=c("","NA","NULL",NULL)) %>% 
+            drop_na() %>% 
+            select(-c(Card_Amount_Paid, Military_Time, Province))
