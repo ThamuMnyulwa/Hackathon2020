@@ -98,6 +98,13 @@ na_count
 # Create a feature Capitec Clients
 data1 <- data1 %>% mutate(Capitec_client = if_else(is.na(Client_ID),"No", "Yes"))
 
+# Create feature showing month of transaction in order to use in visualization
+# https://statistics.berkeley.edu/computing/r-dates-times
+
+dtparts = data1$Tran_Date
+#dtparts = format(dtparts,'%A, %B %d, %Y %H:%M:%S')
+data1$Month = format(dtparts,'%B')
+
 # Create a feature for Transaction Industry
 
 data1 <- data1 %>% mutate( Industry = case_when(str_detect(Merchant_Name, "Liquor") ~ "Liquor",
