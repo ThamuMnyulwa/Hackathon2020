@@ -1,5 +1,6 @@
 # Author:  ----------------------------------------------------------------
 # Description: ui script-----------------------------------------
+<<<<<<< HEAD
 # Date: -------------------------------------------------------------------
 
 # navbarPage("Automatic Industry Report", id="main",
@@ -217,3 +218,14 @@ ui <- dashboardPage(
     )
   )
 ) # Last bracket
+=======
+# Date: 24/7/2020---------------------------------------------------------------
+
+#renv::restore()
+#
+navbarPage("Automatic Industry Report", id="main",
+           tabPanel("Map", leafletOutput("bbmap", height=1000)),
+           tabPanel("Data", DT::dataTableOutput("merchant_datatable"))
+           #tabPanel("Read Me",includeMarkdown("readme.md"))
+           )
+>>>>>>> c85ecf7303cd355c1ef5ace104aefe3b91a74ed7
