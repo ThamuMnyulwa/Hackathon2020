@@ -1,13 +1,6 @@
 # Author:  ----------------------------------------------------------------
 # Description: ui script-----------------------------------------
-<<<<<<< HEAD
 # Date: -------------------------------------------------------------------
-
-# navbarPage("Automatic Industry Report", id="main",
-#            tabPanel("Map", leafletOutput("bbmap", height=1000)),
-#            tabPanel("Data", DT::dataTableOutput("merchant_datatable"))
-#            #tabPanel("Read Me",includeMarkdown("readme.md"))
-#            )
 
 ui <- dashboardPage(
   skin = "black",
@@ -106,17 +99,9 @@ ui <- dashboardPage(
                 tabBox(
                   width = 6,
                   tabPanel(
-                    "Asset Completeness",
+                    "Box PLot Output",
                     withSpinner(
-                      plotOutput("asset_plot"),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
-                  ),
-                  tabPanel(
-                    "Failure Completeness",
-                    withSpinner(
-                      plotOutput("failure_plot"),
+                      plotOutput("boxplot"),
                       type = getOption("spinner.type", default = 1),
                       color = getOption("spinner.color", default = "#E4610F")
                     )
@@ -218,14 +203,3 @@ ui <- dashboardPage(
     )
   )
 ) # Last bracket
-=======
-# Date: 24/7/2020---------------------------------------------------------------
-
-#renv::restore()
-#
-navbarPage("Automatic Industry Report", id="main",
-           tabPanel("Map", leafletOutput("bbmap", height=1000)),
-           tabPanel("Data", DT::dataTableOutput("merchant_datatable"))
-           #tabPanel("Read Me",includeMarkdown("readme.md"))
-           )
->>>>>>> c85ecf7303cd355c1ef5ace104aefe3b91a74ed7

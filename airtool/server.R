@@ -53,18 +53,6 @@ server <- function(input, output, session) {
   #create a data object to display data
   output$merchant_datatable <-DT::renderDataTable(datatable(merchant_data))
   
-  # # new column for the popup label
-  # raw_data_1 <- mutate(raw_data, cntnt=paste0('<strong>Name: </strong>',Name,
-  #                                                       '<br><strong>Merchant Id:</strong> ', Merchant_Id,
-  #                                                       '<br><strong>Business Choice:</strong> ', Business_Choice,
-  #                                                       '<br><strong>Address:</strong> ',Address,
-  #                                                       '<br><strong>City:</strong> ',City,
-  #                                                       '<br><strong>Area Code:</strong> ',Area_Code,
-  #                                                       '<br><strong>Industry:</strong> ',Industry))
-  
-  # create a color paletter for category type in the data file
-  
-  #pal <- colorFactor(pal = c(palette = topo.colors(length(unique(merchant_data$Industry))), domain = unique(merchant_data$Industry)))
   pal <- colorFactor(topo.colors(length(unique(merchant_data$Industry))), unique(merchant_data$Industry))
   
   # create the leaflet map  
@@ -84,5 +72,36 @@ server <- function(input, output, session) {
   
   #create a data object to display data
   output$merchant_datatable <-DT::renderDataTable(datatable(merchant_data))
+  
+
+# Plots -------------------------------------------------------------------
+
+output$boxplot <- renderPlot({
+  ggplot(data=data1 %>% filter(Amount<= 3000)) +
+    aes(x = weekday, y = Amount, fill = industry) +
+    geom_boxplot() +
+    scale_fill_hue() +
+    theme_minimal()
+})  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }
