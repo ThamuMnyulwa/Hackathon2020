@@ -2,7 +2,25 @@
 # Description: server script-----------------------------------------
 # Date: -------------------------------------------------------------------
 
-shinyServer(function(input, output) {
+server <- function(input, output, session) {
+  
+  # NAVIGATION BUTTONS ------------------------------------------------------
+  
+  #basic button navigation
+  observeEvent(input$visualisations.button, {
+    updateTabItems(session, "sidebartabs", "visualisations")
+  })
+  
+  observeEvent(input$maps.button, {
+    updateTabItems(session, "sidebartabs", "maps")
+  })
+  
+  observeEvent(input$predictions.button, {
+    updateTabItems(session, "sidebartabs", "predictions")
+  })
+  
+  # SELECT PAGE -------------------------------------------------------------
+  
 
   # # new column for the popup label
   merchant_data_1 <- mutate(merchant_data, cntnt=paste0('<strong>Name: </strong>',Name,
@@ -67,4 +85,4 @@ shinyServer(function(input, output) {
   #create a data object to display data
   output$merchant_datatable <-DT::renderDataTable(datatable(merchant_data))
   
-})
+}

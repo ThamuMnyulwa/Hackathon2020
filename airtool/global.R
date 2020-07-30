@@ -9,6 +9,15 @@ library(readr)
 library(tidyr)
 library(leaflet)
 library(DT)
+library(shinyBS)
+library(shinycssloaders)
+library(shinydashboard)
+library(shinyjs)
+library(shinyWidgets)
+library(summarytools)
+library(shinyalert)
+library(ggplot2)
+
 
 # Data import -------------------------------------------------------------
 merchant_data <- read_csv("./data/MerchantData.csv")
