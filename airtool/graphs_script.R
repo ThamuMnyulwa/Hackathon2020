@@ -40,7 +40,7 @@ plot + geom_bar(stat = "identity") +
 # Count the total swipes by the Merchant Id and plot
 count.df <-
   with(data_Liquor, aggregate(
-    cbind(Month, Amount) ~ Merchant_Id,
+    cbind(month, Amount) ~ Merchant_Id,
     FUN = function(x) {
       length(x)
     }
@@ -58,7 +58,7 @@ plot + geom_bar(stat = "identity") +
 
 # Take month into account as a variable
 count.df <-
-  data.frame(table(data_Liquor$Merchant_Id, data_Liquor$Month))
+  data.frame(table(data_Liquor$Merchant_Id, data_Liquor$month))
 colnames(count.df) <- c('Merchant_Id', 'Month', 'Freq')
 
 #-- Create a new variable showing merchants proportion of sales (merchant that month)/(that months ammount)
@@ -205,6 +205,11 @@ ggplot(data=data1 %>% filter(Amount<= 3000)) +
 
 
 # Code 2 ------------------------------------------------------------------
+ggplot(data=data1 %>% filter(Amount<= 3000)) +
+  aes(x = capitec_client, y = Amount) +
+  geom_boxplot(fill = "#0c4c8a") +
+  theme_minimal()
+
 
 ggplot(`rio::import('data1.csv')`) +
   aes(x = capitec_client, y = Amount) +
@@ -214,8 +219,8 @@ ggplot(`rio::import('data1.csv')`) +
 
 # Code 3 ------------------------------------------------------------------
 
-ggplot(`rio::import('data1.csv')`) +
-  aes(x = capitec_client, y = Amount, fill = Industry) +
+ggplot(data=data1%>% filter(Amount<= 3000)) +
+  aes(x = capitec_client, y = Amount, fill = industry) +
   geom_boxplot() +
   scale_fill_hue() +
   theme_minimal()
@@ -228,13 +233,12 @@ ggplot(`rio::import('data1.csv')`) +
   theme_minimal()
 
 
+# Export to ggplotbuilder2
+data2 = data1[sample(nrow(data1),5000),]
+dim(data2)
 
+write_csv(data2,'data2.csv')
 
-
-
-
-
-
-
-
-
+install.packages("esquisse")
+library(esquisse)
+esquisse::esquisser()

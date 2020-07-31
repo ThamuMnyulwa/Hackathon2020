@@ -14,6 +14,7 @@ library(forecast)
 library(lubridate)
 library(tseries)
 library(ggplot2)
+library(rio)
 
 raw_data <- read_tsv("https://raw.githubusercontent.com/SUHackathon/data-science-challenge/master/data/business_data.txt", na=c("","NA","NULL",NULL))
 

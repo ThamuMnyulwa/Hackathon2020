@@ -104,6 +104,29 @@ ui <- dashboardPage(
                       plotOutput("boxplot"),
                       type = getOption("spinner.type", default = 1),
                       color = getOption("spinner.color", default = "#E4610F")
+                    ),
+                    div(
+                      style = "position: absolute; right:0.5em; top: 0.5em;",
+                      dropdown(
+                        stateSelectInput("merchants", "Merchants", (processed_data$Merchant_Id), NULL, TRUE),
+                        stateSelectInput("towns", "Towns", (processed_data$Town), NULL, TRUE),
+                        stateSelectInput("avg_income", "Average Income", (processed_data$Avg_Income_3M), NULL, TRUE),
+                        stateSelectInput("industry", "Industry", (processed_data$industry), NULL, TRUE),
+                        stateSelectInput("age_band", "Age", (processed_data$Age_Band), NULL, TRUE),
+                        stateSelectInput("gender", "Gender", (processed_data$Gender_code), NULL, TRUE),
+                        stateSelectInput("cap_client", "Capitec Client", (processed_data$capitec_client), NULL, TRUE),
+                        mySliderInput("range", label = "Amount", min = min(processed_data$Amount), max = max(processed_data$Amount)),
+                        dateRangeInput(
+                          inputId = "transaction_date",
+                          label = "Transaction Date",
+                          start  = min(processed_data$date),
+                          end    = max(processed_data$date)
+                        ),
+                        actionButton("filter_data", "Filter Data"),
+                        size = "sm",
+                        icon = icon("gear", class = "opt"),
+                        up = FALSE
+                      )
                     )
                   )
                 ),

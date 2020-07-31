@@ -75,19 +75,35 @@ server <- function(input, output, session) {
   output$merchant_datatable <-DT::renderDataTable(datatable(merchant_data))
   
 
-# Plots -------------------------------------------------------------------
-
-output$boxplot <- renderPlot({
-  ggplot(data=processed_data %>% filter(Amount<= 3000)) +
-    aes(x = weekday, y = Amount, fill = industry) +
-    geom_boxplot() +
-    scale_fill_hue() +
-    theme_minimal()
-})  
+  # ------------------------------------------------------------------------
+  filtered_data <- eventReactive(input$filter_data, {
+    data <- processed_data %>%
+      subset((Merchant_Id %in% c(input$merchants)) &
+               (Town %in% c(input$towns)) &
+               (Avg_Income_3M %in% c(input$avg_income)) &
+               (industry %in% c(input$industry)) &
+               (Age_Band %in% c(input$age_band)) &
+               (Gender_code %in% c(input$gender)) &
+               (capitec_client %in% c(input$cap_client))
+      ) %>%
+      filter(
+        between(date,
+                input$transaction_date[1],
+                input$transaction_date[2]) &
+                (Amount >= input$range[1]) &
+                (Amount >= input$range[2])
+      )
+  })
   
+  # Plots -------------------------------------------------------------------
   
-  
-  
+  output$boxplot <- renderPlot({
+    ggplot(data=filtered_data()) +
+      aes(x = weekday, y = Amount, fill = industry) +
+      geom_boxplot() +
+      scale_fill_hue() +
+      theme_minimal()
+  })  
   
   
   
