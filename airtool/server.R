@@ -38,6 +38,7 @@ server <- function(input, output, session) {
   # create the leaflet map  
   output$bbmap <- renderLeaflet({
     leaflet(merchant_data_1) %>% 
+      addProviderTiles("CartoDB") %>% 
       addCircles(lng = ~Long, lat = ~Lat) %>% 
       addTiles() %>%
       addCircleMarkers(data = merchant_data_1, lat =  ~Lat, lng =~Long, 
