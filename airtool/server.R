@@ -77,7 +77,7 @@ server <- function(input, output, session) {
 # Plots -------------------------------------------------------------------
 
 output$boxplot <- renderPlot({
-  ggplot(data=data1 %>% filter(Amount<= 3000)) +
+  ggplot(data=processed_data %>% filter(Amount<= 3000)) +
     aes(x = weekday, y = Amount, fill = industry) +
     geom_boxplot() +
     scale_fill_hue() +
