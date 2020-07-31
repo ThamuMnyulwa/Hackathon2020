@@ -1,7 +1,6 @@
 # Improve handling NA's
 
 library(readr)
-#install.packages('curl')
 library(curl)
 library(tidyr)
 library(dplyr)
@@ -21,9 +20,6 @@ na_count
 # Visualize columns with missing values -----------------------------------------
 
 gg_miss_which(raw_data)
-
-
-
 
 # Visualize overall missing -----------------------------------------------------
 
@@ -64,22 +60,22 @@ library(ggplot2)
 
 # using regular geom_point()
 ggplot(data1,
-       aes(x = factor(data1$Town),
-           y = data1$Card_Amount_Paid)) +
+       aes(x = factor(Town),
+           y = Card_Amount_Paid)) +
   geom_point()
 
 
 # Facets!
 ggplot(data1,
-       aes(x = factor(data1$Merchant_Id),
-           y = data1$Card_Amount_Paid)) +
+       aes(x = factor(Merchant_Id),
+           y = Card_Amount_Paid)) +
   geom_miss_point() + 
   facet_wrap(~factor(Town))
 
 # Guys
 ggplot(data1,
-       aes(x = factor(data1$Merchant_Id),
-           y = data1$Avg_Income_3M)) +
+       aes(x = factor(Merchant_Id),
+           y = Avg_Income_3M)) +
   geom_miss_point() + 
   facet_wrap(~factor(Town))
 
@@ -96,18 +92,28 @@ na_count <- data.frame(na_count)
 na_count
 
 # Create a feature Capitec Clients
-data1 <- data1 %>% mutate(Capitec_client = if_else(is.na(Client_ID),"No", "Yes"))
+data1 <- data1 %>% mutate()
 
 # Create feature showing month of transaction in order to use in visualization
 # https://statistics.berkeley.edu/computing/r-dates-times
 
-dtparts = data1$Tran_Date
-#dtparts = format(dtparts,'%A, %B %d, %Y %H:%M:%S')
-data1$Month = format(dtparts,'%B')
+# dtparts = data1$Tran_Date
+# #dtparts = format(dtparts,'%A, %B %d, %Y %H:%M:%S')
+# data1$Month = format(dtparts,'%B')
 
 # Create a feature for Transaction Industry
+library(lubridate)
 
-data1 <- data1 %>% mutate( Industry = case_when(str_detect(Merchant_Name, "Liquor") ~ "Liquor",
+wday(data1$Tran_Date, label = TRUE)
+
+
+data1 <- data1 %>% mutate(date = lubridate::date(Tran_Date),
+                          day_of_month = lubridate::day(Tran_Date),
+                          time_of_day = lubridate::hour(Tran_Date),
+                          weekday = wday(Tran_Date, label = TRUE),
+                          month = lubridate::month(Tran_Date),
+                          capitec_client = if_else(is.na(Client_ID),"No", "Yes"),
+                          industry = case_when(str_detect(Merchant_Name, "Liquor") ~ "Liquor",
                                                str_detect(Merchant_Name, "Market") ~ "MiniMarket",
                                                str_detect(Merchant_Name, "Rest") ~ "Restaurant",
                                                str_detect(Merchant_Name, "Coffee") ~ "CoffeeShop",
@@ -115,23 +121,14 @@ data1 <- data1 %>% mutate( Industry = case_when(str_detect(Merchant_Name, "Liquo
                                                str_detect(Merchant_Name, "Beauty") ~ "Beauty",
                                        TRUE ~ "Unknown"))
 
-                            
-                                                                  
-
-
 # Create Industry Specific datasets --------------------
 
-data_MiniMarket <- data1[data1$Industry == "MiniMarket",]
-data_Liquor <- data1[data1$Industry == "Liquor",]
-data_Restaurant <- data1[data1$Industry == "Restaurant",]
-data_CoffeeShop <- data1[data1$Industry == "CoffeeShop",]
-data_FastFood <- data1[data1$Industry == "FastFood",]
-data_Beauty <- data1[data1$Industry == "Beauty",]  
+data_MiniMarket <- data1[data1$industry == "MiniMarket",]
+data_Liquor <- data1[data1$industry == "Liquor",]
+data_Restaurant <- data1[data1$industry == "Restaurant",]
+data_CoffeeShop <- data1[data1$industry == "CoffeeShop",]
+data_FastFood <- data1[data1$industry == "FastFood",]
+data_Beauty <- data1[data1$industry == "Beauty",]  
 
 
-# Card_Value_Spending and Card_Number_Spending are not the same
-all.equal(data1$Card_Value_Spending, data1$Card_Number_Spending)
 
-# Amount and Card_Amount_Paid are not the same
-all.equal(data1$Amount,data1$Card_Amount_Paid)
-identical(data1$Amount,data1$Card_Amount_Paid)
