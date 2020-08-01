@@ -28,17 +28,34 @@ na_count
 
 # Visualize columns with missing values -----------------------------------------
 
-gg_miss_which(raw_data)
+gg_miss_which(raw_data)+   
+  labs(title = "Raw data from Capitec",
+       subtitle = "All features have missing values. We had 16 features and 80983 observations.",
+       y = "",
+       x = "Features"
+       )
 
 # Visualize overall missing -----------------------------------------------------
 
 # Visualize missing data
-vis_miss(raw_data,warn_large_data=FALSE)
+vis_miss(raw_data,warn_large_data=FALSE)+   
+       labs(title = "Relationship of missingness (Raw data)",
+       subtitle = "16 features and 80983 observations.",
+       y = "Observation",
+       x = ""
+  )
+
 
 
 # Exploring patterns with UpSetR -----------------------------------------------------
 
-gg_miss_upset(raw_data)
+gg_miss_upset(raw_data) +   
+  labs(title = "Pattern of Missingness (Raw data)",
+       subtitle = "16 features and 80983 observations.",
+       y = "Observation",
+       x = ""
+  )
+
 
 n_var_miss(raw_data)
 

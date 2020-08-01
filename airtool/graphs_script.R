@@ -234,7 +234,7 @@ ggplot(`rio::import('data1.csv')`) +
 
 
 # Export to ggplotbuilder2
-data2 = data1[sample(nrow(data1),5000),]
+data2 = processed_data[sample(nrow(processed_data),5000),]
 dim(data2)
 
 write_csv(data2,'data2.csv')

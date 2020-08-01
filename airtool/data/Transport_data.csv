@@ -1,0 +1,39 @@
+﻿Name,Lat,Long,Address,City,Area_Code,Transport_means,Description
+Gautrain H5 Menlyn Bus Stop 16,-25.787651,28.2680576,"220 Garsfontein Rd, Newlands, Pretoria",Pretoria,49,Gautrain bus,"Bus route from the Hatfield Gautrain Station. 
+First Bus at 06:14 (from the train station). Last bus at 19:40. 
+Bus Frequencies: Before 10:00, every 12 minutes; 10:00-15:30, every 24 minutes; after 15:30, every 12 minutes. 
+Note: no service on public holidays or weekends"
+Gautrain Station Pretoria,-25.7606071,28.1871476,"3rd Ave, Salvokop, Pretoria",Pretoria,2,Gautrain,Gautrain Station. Peak times (busy): 06:00-09:00 and 14:00-18:00
+Hatfield Gautrain Jan Shoba St,-25.7467752,28.2352664,"Jan Shoba St, Hatfield, Pretoria",Pretoria,28,Gautrain,"Gautrain Station. Peak times (busy): 06:00-09:00
+Rest of the time is usually not to busy"
+"Brooklyn Office Park, Fehrsen St",-25.7686782,28.2319943,"Brooklyn, Pretoria",Pretoria,11,Gautrain bus,"Bus route from the Hatfield Gautrain Station. 
+First Bus at 06:14 (from the train station). Last bus at 19:40. 
+Bus Frequencies: Before 10:00, every 12 minutes; 10:00-15:30, every 24 minutes; after 15:30, every 12 minutes. 
+Note: no service on public holidays or weekends"
+A Re Yeng - Loftus Station,-25.7557212,28.2201204,"26 Lynnwood Rd, Pretoria, 0007 Lynnwood Rd, Elandspoort 357-Jr, Pretoria",Pretoria,7,A Re Yeng bus,Bus Station servicing Pretoria
+Rissik,-25.7495828,28.229925,"Festival St, Hatfield, Pretoria",Pretoria,28,Metrorail,Metrorail servicing Pretoria
+Walker Street,-25.7606119,28.199351,"Muckleneuk, Pretoria",Pretoria,2,Metrorail,Metrorail servicing Pretoria
+Piering Rd & Petrus St,-25.8302562,28.2600652,"Elardus Park, Pretoria",Pretoria,47,Bus route,Local Bus stop
+Jan Shoba St (Embassy of Austria),-25.7675485,28.230633,"Brooklyn, Pretoria",Pretoria,11,Bus route,Local Bus stop
+Lois St & Atterbury Rd,-25.7828376,28.2755573,"Menlyn, Pretoria",Pretoria,63,Bus route,Local Bus stop
+Taxi Rank - TR175,-25.7828182,28.2755573,"Menlyn Parking, Garston AH, Pretoria",Pretoria,63,Taxi Service,Local Taxi Rank 
+Taxi Rank - TR133,-25.8193951,28.2695113,"Castle Walk, Erasmuskloof, Pretoria",Pretoria,48,Taxi Service,Local Taxi Rank 
+Taxi Rank - TR009,-25.7836153,28.2717597,"Atterbury Rd, Menlyn, Pretoria",Pretoria,63,Taxi Service,Local Taxi Rank 
+Potchefstroom Taxi Rank,-26.7248387,27.1207812,Potchefstroom,Potchefstroom,2520,Taxi Service,Greater Potchefstroom Taxi Rank
+Europcar Potchefstroom,-26.7248387,27.1207812,"The Willows Garden Hotel, 82 Govan Mbeki Ave,  Potchefstroom",Potchefstroom,2531,Car Rental,Car rental services in Potchefstroom
+Teksie,-26.7248387,27.1207812,"Tuscany Ridge Lifestyle,  84 Lucca, Van Der Hoff Park, Potchefstroom",Potchefstroom,2520,Shuttle Service,Shuttle Service in Potchefstroom
+Potchefstroom,-26.7116651,27.0828113,"Stasie Road, Potchefstroom",Potchefstroom,2520,Train Station,Train station in Potchefstroom
+Segonyane Taxi Association,-27.4581742,23.4309153,"Kort St, Kuruman",Kuruman,8460,Taxi Service,Taxi Service in Kuruman
+Queenstown Airport,-31.892365,26.9001848,Queenstown,Queenstown,5320,Airport,"Popular times: airport is usually busy from 09:00-16:00
+Busiest hour is 14:00-15:00"
+Intercape Queenstown Station,-31.8936461,26.8777978,"Queens Dr, Queenstown",Queenstown,5320,Bus Station,Long distance Bus station
+Peyi's Shuttle Service,-31.9272548,26.8580606,"9495 Honey St, Queenstown",Queenstown,5319,Shuttle Service,Transportation services in and around Queenstown as well as the Eastern Cape
+Taxi Rank,-31.8986572,26.8671916,"24 Dunbar St, Queenstown",Queenstown,5320,Taxi Service,Local Taxi Rank 
+Taxi Rank,-33.9397748,18.8413966,"1370 Bird St, Tenantville, Stellenbosch",Stellenbosch,7600,Taxi Service,Local Taxi Rank
+Go! Shuttle,-33.9397748,18.8413966,"Bird St, Stellenbosch Central, Stellenbosch",Stellenbosch,7600,Shuttle Service,"Transportation services in and around Stellenbosch as well as the Western Cape, specifically to Cape Town International Airport"
+Shuttle Up,-33.9397748,18.8413966,"Stellenbosch Central,  Stellenbosch Central, Stellenbosch ",Stellenbosch,7613,Shuttle Service,Transportation services in and around Stellenbosch
+Stellenbosch,-33.9321604,18.8532674,"Adam Tas Rd, Stellenbosch Central, Stellenbosch",Stellenbosch,7600,Train Station,"Popular times: train station is usually busy between 16:00-18:00
+Busiest hour (as busy as it gets) is 16:00-17:00"
+Du Toit,-33.9321604,18.8532674,"Porter Rd, La Colline, Stellenbosch",Stellenbosch,7600,Train Station,Local train station in Stellenbosch
+Athlone,-33.9661253,18.5035631,"Eike Ave, Athlone, Cape Town",Athlone,7760,Train Station,Train station servicing Athlone and surrounding areas
+Taxi Rank - WCTT003_3,-33.9672391,18.4944363,"Birdwood St, Athlone, Cape Town",Athlone,7760,Taxi Service,Local Taxi Rank
