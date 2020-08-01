@@ -49,12 +49,7 @@ vis_miss(raw_data,warn_large_data=FALSE)+
 
 # Exploring patterns with UpSetR -----------------------------------------------------
 
-gg_miss_upset(raw_data) +   
-  labs(title = "Pattern of Missingness (Raw data)",
-       subtitle = "16 features and 80983 observations.",
-       y = "Observation",
-       x = ""
-  )
+gg_miss_upset(data1) 
 
 
 n_var_miss(raw_data)
@@ -66,7 +61,13 @@ n_var_miss(raw_data)
 data1 = raw_data %>% drop_na("Town")
 
 # Visualize columns with missing values -----------------------------------------
-gg_miss_which(data1)
+gg_miss_which(data1)+
+  labs(title = "data1",
+       subtitle = "7 features have missing values. We had 16 features and 80983 observations.",
+       y = "",
+       x = "Features")
+
+  
 
 # Count Na's column wise --------------------------------------------------------
 na_count <-sapply(data1, function(y) sum(length(which(is.na(y)))))
@@ -108,7 +109,12 @@ ggplot(data1,
 data1 = data1 %>% select(-c(Military_Time, Province))
 
 # Explote pattern of missingness again --------------------------------
-vis_miss(data1,warn_large_data=FALSE)
+vis_miss(data1,warn_large_data=FALSE)+   
+  labs(title = "data1",
+       subtitle = "All features have missing values. We had 16 features and 80983 observations.",
+       y = "",
+       x = "Features"
+  )
 
 # Count Na's column wise ----------------------------------------------
 na_count <-sapply(data1, function(y) sum(length(which(is.na(y)))))
