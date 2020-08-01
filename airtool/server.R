@@ -91,7 +91,7 @@ server <- function(input, output, session) {
                 input$transaction_date[1],
                 input$transaction_date[2]) &
                 (Amount >= input$range[1]) &
-                (Amount >= input$range[2])
+                (Amount <= input$range[2])
       )
   })
   
@@ -104,21 +104,5 @@ server <- function(input, output, session) {
       scale_fill_hue() +
       theme_minimal()
   })  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 }

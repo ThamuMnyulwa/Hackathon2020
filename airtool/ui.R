@@ -96,69 +96,40 @@ ui <- dashboardPage(
     tabItems(
       tabItem("visualisations",
               fluidRow(
+                sidebarPanel(width = 3,
+                  stateSelectInput("merchants", "Merchants", levels(processed_data$Merchant_Id), levels(processed_data$Merchant_Id), TRUE),
+                  stateSelectInput("towns", "Towns", levels(processed_data$Town), levels(processed_data$Town), TRUE),
+                  stateSelectInput("avg_income", "Average Income", levels(processed_data$Avg_Income_3M), levels(processed_data$Avg_Income_3M), TRUE),
+                  stateSelectInput("industry", "Industry", levels(processed_data$industry), levels(processed_data$industry), TRUE),
+                  stateSelectInput("age_band", "Age", levels(processed_data$Age_Band), levels(processed_data$Age_Band), TRUE),
+                  stateSelectInput("gender", "Gender", levels(processed_data$Gender_code), levels(processed_data$Gender_code), TRUE),
+                  stateSelectInput("cap_client", "Capitec Client", levels(processed_data$capitec_client), levels(processed_data$capitec_client), TRUE),
+                  mySliderInput("range", label = "Amount", min = min(processed_data$Amount), max = max(processed_data$Amount)),
+                  dateRangeInput(
+                    inputId = "transaction_date",
+                    label = "Transaction Date",
+                    start  = min(processed_data$date),
+                    end    = max(processed_data$date)
+                  ),
+                  actionButton("filter_data", "Show Plots")
+              ),
                 tabBox(
-                  width = 6,
+                  width = 9,
                   tabPanel(
                     "Box PLot Output",
                     withSpinner(
                       plotOutput("boxplot"),
                       type = getOption("spinner.type", default = 1),
                       color = getOption("spinner.color", default = "#E4610F")
-                    ),
-                    div(
-                      style = "position: absolute; right:0.5em; top: 0.5em;",
-                      dropdown(
-                        stateSelectInput("merchants", "Merchants", (processed_data$Merchant_Id), NULL, TRUE),
-                        stateSelectInput("towns", "Towns", (processed_data$Town), NULL, TRUE),
-                        stateSelectInput("avg_income", "Average Income", (processed_data$Avg_Income_3M), NULL, TRUE),
-                        stateSelectInput("industry", "Industry", (processed_data$industry), NULL, TRUE),
-                        stateSelectInput("age_band", "Age", (processed_data$Age_Band), NULL, TRUE),
-                        stateSelectInput("gender", "Gender", (processed_data$Gender_code), NULL, TRUE),
-                        stateSelectInput("cap_client", "Capitec Client", (processed_data$capitec_client), NULL, TRUE),
-                        mySliderInput("range", label = "Amount", min = min(processed_data$Amount), max = max(processed_data$Amount)),
-                        dateRangeInput(
-                          inputId = "transaction_date",
-                          label = "Transaction Date",
-                          start  = min(processed_data$date),
-                          end    = max(processed_data$date)
-                        ),
-                        actionButton("filter_data", "Filter Data"),
-                        size = "sm",
-                        icon = icon("gear", class = "opt"),
-                        up = FALSE
-                      )
-                    )
-                  )
-                ),
-                tabBox(
-                  width = 6,
-                  tabPanel(
-                    "Summary",
-                    tags$h3("Asset Data")
-                  )
-                ),
-                fluidRow(tabBox(
-                  width = 6, 
+                    )),
                   tabPanel(
                     "Asset Datatable",
                     withSpinner(
                       dataTableOutput(''),
                       type = getOption("spinner.type", default = 1),
                       color = getOption("spinner.color", default = "#E4610F")
-                    )
+                    ))
                   )
-                ),
-                tabBox(
-                  width = 6,
-                  tabPanel(
-                    "Failure Datatable",
-                    withSpinner(
-                      dataTableOutput(''),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
-                  )
-                ))
               )),
       tabItem("maps",
               fluidRow(
