@@ -190,6 +190,21 @@ server <- function(input, output, session) {
     facet_wrap(vars(industry))
 })
   
+  # create the leaflet map  
+  output$merchant_data <- renderLeaflet({
+    leaflet(merchant_data)%>%
+      addProviderTiles(providers$OpenStreetMap)%>%
+      addCircles(lng = merchant_data$Long,
+                 lat = merchant_data$Lat,
+                 popup = merchant_data$Industry) %>%
+      addMarkers(data=competitor_data,lng = ~Long,
+                 lat = ~Lat , icon=Comp_Icon ) %>%
+      addMarkers(data=placeofinterest_data,lng = ~Long,
+                 lat = ~Lat , icon=POI_icon) %>%
+      addMarkers(data=transport_data,lng = ~Long,
+                 lat = ~Lat , icon=Trans_Icon)
+    
+  })
   
   
   

@@ -57,3 +57,10 @@ stateSelectInput <- function(InputId_var, label_var, choices_var, selected_var, 
 mySliderInput <- function(id, label = id, min = 0, max = 1) {
   sliderInput(id, label, min = min, max = max, value = c(0, 3000), step = 500)
 }
+
+library(rlist)
+POI_icon <- readRDS("./data/POI_icon.rds")
+Comp_Icon <- readRDS("./data/Comp_Icon.rds")
+Trans_Icon <- readRDS("./data/Trans_Icon.rds")
+
+
