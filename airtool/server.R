@@ -191,7 +191,7 @@ server <- function(input, output, session) {
 })
   
   # create the leaflet map  
-  output$merchant_data <- renderLeaflet({
+  output$merchant_leaf_map <- renderLeaflet({
     leaflet(merchant_data)%>%
       addProviderTiles(providers$OpenStreetMap)%>%
       addCircles(lng = merchant_data$Long,

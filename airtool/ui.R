@@ -199,7 +199,15 @@ ui <- dashboardPage(
                 tabBox(
                   width = 12,
                   tabPanel(
-                    "Map",
+                    "Map 1",
+                    withSpinner(
+                      leafletOutput("merchant_leaf_map", height=1000),
+                      type = getOption("spinner.type", default = 1),
+                      color = getOption("spinner.color", default = "#E4610F")
+                    )
+                  ), 
+                  tabPanel(
+                    "Map 2",
                     withSpinner(
                       leafletOutput("bbmap", height=1000),
                       type = getOption("spinner.type", default = 1),
