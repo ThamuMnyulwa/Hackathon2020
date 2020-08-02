@@ -39,8 +39,6 @@ ggplot(data_Restaurant) +
   labs(x = "Time (Daily)", y = "Amount (ZAR)", title = "Time plot of Daily ammount", subtitle = "Daily profit made over time") +
   theme_minimal()
 
-
-
 # Gender 
 ggplot(data_CoffeeShop) +
   aes(x = Gender_code, weight = Amount) +
@@ -69,7 +67,7 @@ esquisser()
 ggplot(processed_data) +
   aes(x = ordered(processed_data$weekday,
                   levels=c("Sun","Mon", "Tue", "Wed", "Thu","Fri", "Sat"))
-                  , fill = industry, colour = industry, weight = Amount) +
+                  , fill = industry, colour = industry, weight = Amount) + 
   geom_bar() +
   scale_fill_hue() +
   scale_color_hue() +
@@ -79,7 +77,7 @@ ggplot(processed_data) +
 
 # Plot 3 -----------------------------------
 
-ggplot(data2) +
+ggplot(processed_data) +
   aes(x = Avg_Income_3M, fill = industry, colour = industry, group = industry) +
   geom_bar() +
   scale_fill_viridis_d(option = "inferno") +
@@ -97,7 +95,7 @@ colnames(processed_data)
 datatemp = processed_data
 datatemp = datatemp %>% filter(Amount <= 1000)
 
-density.chicks <- ggplot(datatemp) +
+ggplot(processed_data %>% filter(Amount <= 1000)) +
   geom_density(aes(x=Amount, color = industry,fill=industry), alpha=0.8, show.legend = TRUE)+
   labs(x="Amount (ZAR)", y = "Density" ,subtitle = "Plot ") +
   scale_fill_brewer(palette = "RdYlBu") +
@@ -108,7 +106,7 @@ density.chicks
 
 #  Plot 5
 
-ggplot(data2) +
+ggplot(processed_data) +
   aes(x = capitec_client, fill = industry, colour = industry, group = industry) +
   geom_bar() +
   scale_fill_brewer(palette = "RdBu") +

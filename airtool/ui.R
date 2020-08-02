@@ -105,6 +105,7 @@ ui <- dashboardPage(
                   stateSelectInput("gender", "Gender", levels(processed_data$Gender_code), levels(processed_data$Gender_code), TRUE),
                   stateSelectInput("cap_client", "Capitec Client", levels(processed_data$capitec_client), levels(processed_data$capitec_client), TRUE),
                   mySliderInput("range", label = "Amount", min = min(processed_data$Amount), max = max(processed_data$Amount)),
+                  uiOutput("ind_plots"),
                   dateRangeInput(
                     inputId = "transaction_date",
                     label = "Transaction Date",
@@ -121,15 +122,77 @@ ui <- dashboardPage(
                       plotOutput("boxplot"),
                       type = getOption("spinner.type", default = 1),
                       color = getOption("spinner.color", default = "#E4610F")
-                    )),
-                  tabPanel(
-                    "Asset Datatable",
-                    withSpinner(
-                      dataTableOutput(''),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
                     ))
-                  )
+                  ),
+              tabBox(
+                width = 9,
+                tabPanel(
+                  "Stacked Bar",
+                  withSpinner(
+                    plotOutput("stackedbar"),
+                    type = getOption("spinner.type", default = 1),
+                    color = getOption("spinner.color", default = "#E4610F")
+                  ))
+          ),
+          tabBox(
+            width = 12,
+            tabPanel(
+              "Total Transactions by Industry",
+              withSpinner(
+                plotOutput("total_transactions"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              )),
+            tabPanel(
+              "Daily Amount",
+              withSpinner(
+                plotOutput("daily_amount"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              )),
+            tabPanel(
+              "Gender Amount",
+              withSpinner(
+                plotOutput("gender_amount"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              ))
+          ),
+          tabBox(
+            width = 12,
+            tabPanel(
+              "Complete Industry Spending",
+              withSpinner(
+                plotOutput("complete_industry_spending"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              )),
+            tabPanel(
+              "Three Month Transactions",
+              withSpinner(
+                plotOutput("complete_three_trans"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              )),
+            tabPanel(
+              "Density Industry",
+              withSpinner(
+                plotOutput("density_industry"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              )),
+            tabPanel(
+              "Capitect Clients",
+              withSpinner(
+                plotOutput("capitec_clients"),
+                type = getOption("spinner.type", default = 1),
+                color = getOption("spinner.color", default = "#E4610F")
+              ))
+            
+          )
+          
+          
+          
               )),
       tabItem("maps",
               fluidRow(
