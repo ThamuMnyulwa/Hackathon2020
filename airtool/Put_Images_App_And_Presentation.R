@@ -73,11 +73,12 @@ ggplot(processed_data) +
   geom_bar() +
   scale_fill_hue() +
   scale_color_hue() +
-  labs(x = "Time of day", y = "Number of Transactions", title = "Industry Spending ", subtitle = "Plot counting transactions in data set aganist the time of day") +
+  labs(x = "Day", y = "Number of Transactions", title = "Industry Spending ", subtitle = "Plot counting transactions in data set aganist the time of day") +
   theme_minimal() +
   facet_wrap(vars(industry))
 
 # Plot 3 -----------------------------------
+library('ggpubr')
 
 ggplot(data2) +
   aes(x = Avg_Income_3M, fill = industry, colour = industry, group = industry) +
@@ -86,7 +87,7 @@ ggplot(data2) +
   scale_color_viridis_d(option = "inferno") +
   labs(x = "Average Income in 3 month period", y = "Frequency", title = "Frequency of transactions within each industry ", subtitle = "Complete data over the 3 month") +
   theme_minimal() +
-  facet_wrap(vars(industry))
+  facet_wrap(vars(industry)) + ggpubr::rotate_x_text()
 
 #  Plot 4 ----------------------------------
 
@@ -99,7 +100,7 @@ datatemp = datatemp %>% filter(Amount <= 1000)
 
 density.chicks <- ggplot(datatemp) +
   geom_density(aes(x=Amount, color = industry,fill=industry), alpha=0.8, show.legend = TRUE)+
-  labs(x="Amount (ZAR)", y = "Density" ,subtitle = "Plot ") +
+  labs(x="Amount (ZAR)", y = "Density" ,subtitle = "Plot shows that each industrys density has different distribution ") +
   scale_fill_brewer(palette = "RdYlBu") +
   scale_color_brewer(palette = "RdYlBu") +
   ggtitle("Density of amount between industry") +

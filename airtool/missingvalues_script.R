@@ -28,12 +28,14 @@ na_count
 
 # Visualize columns with missing values -----------------------------------------
 
-gg_miss_which(raw_data)+   
-  labs(title = "Raw data from Capitec",
-       subtitle = "All features have missing values. We had 16 features and 80983 observations.",
+gg_miss_which(data1)+   
+  labs(title = "Manipulated data",
+       subtitle = "7 features have missing values. Now have 23 features and 80982 observations.",
        y = "",
        x = "Features"
        )
+
+dim(data1)
 
 # Visualize overall missing -----------------------------------------------------
 
