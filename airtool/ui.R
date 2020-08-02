@@ -86,7 +86,7 @@ ui <- dashboardPage(
         4,
         bsButton(
           "predictions.button",
-          label = "MODEL DATA",
+          label = "MODEL OUTPUT",
           icon = icon("check-circle"),
           style = "success",
           width = "100%"
@@ -219,48 +219,18 @@ ui <- dashboardPage(
       tabItem("predictions",
               fluidRow(
                 tabBox(
-                  width = 6,
+                  width = 12,
                   tabPanel(
-                    "Asset Completeness",
-                    withSpinner(
-                      plotOutput(""),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
-                  )
-                ),
-                tabBox(
-                  width = 6,
-                  tabPanel(
-                    "Asset Summary Statistics",
-                    withSpinner(
-                      uiOutput(""),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
+                    "Arima Restaurants 1",
+                      img(src = "first_arima_plot.png")
                   )
                 ),
                 fluidRow(
                   tabBox(
-                  width = 6, 
+                  width = 12, 
                   tabPanel(
-                    "Asset Datatable",
-                    withSpinner(
-                      dataTableOutput(''),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
-                  )
-                ),
-                tabBox(
-                  width = 6, 
-                  tabPanel(
-                    "Failure Datatable",
-                    withSpinner(
-                      dataTableOutput(''),
-                      type = getOption("spinner.type", default = 1),
-                      color = getOption("spinner.color", default = "#E4610F")
-                    )
+                    "Arima Restaurants 2",
+                      img(src = "second_arima_plot.png"),
                   )
                 )
                 )
