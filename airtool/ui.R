@@ -221,7 +221,7 @@ ui <- dashboardPage(
                 tabBox(
                   width = 12,
                   tabPanel(
-                    "Arima Restaurants 1",
+                    "Restaurant Industry",
                       img(src = "first_arima_plot.png")
                   )
                 ),
@@ -229,7 +229,7 @@ ui <- dashboardPage(
                   tabBox(
                   width = 12, 
                   tabPanel(
-                    "Arima Restaurants 2",
+                    "Arima Restaurants 1",
                       img(src = "second_arima_plot.png"),
                   )
                 )

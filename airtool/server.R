@@ -96,7 +96,7 @@ server <- function(input, output, session) {
   
   output$ind_plots <- renderUI({
     tagList(
-      stateSelectInput("industry_plots", "Select Industry for Plots", levels(filtered_data()$industry), levels(filtered_data()$industry_plots), FALSE)
+      stateSelectInput("industry_plots", "Filter by one industry", input$industry, input$industry, FALSE)
     )
   })
   
